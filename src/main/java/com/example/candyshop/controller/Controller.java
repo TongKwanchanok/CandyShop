@@ -1,6 +1,7 @@
 package com.example.candyshop.controller;
 
 import com.example.candyshop.Repository.LollipopRespository;
+import com.example.candyshop.Service.LollipopService;
 import com.example.candyshop.model.Lollipop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +12,10 @@ import java.util.List;
 @RestController
 public class Controller {
 
-    @Autowired
-    LollipopRespository lollipopRespository;
+//    @Autowired
+//    LollipopRespository lollipopRespository;
+        @Autowired
+    LollipopService lollipopService;
 
     @RequestMapping("/")
     public String getHello(){
@@ -26,6 +29,6 @@ public class Controller {
 
     @RequestMapping("/GetAllData")
     public List<Lollipop> getAllData(){
-        return lollipopRespository.findAll();
+        return lollipopService.getAllData();
     }
 }
